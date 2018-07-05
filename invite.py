@@ -29,15 +29,20 @@ class Invite:
             self._dinner_party = dinner_party
 
     @property
-    def resvp_status(self):
-        return self._resvp_status
+    def rsvp_status(self):
+        return self._rsvp_status
 
-    @resvp_status.setter
-    def resvp_status(self, resvp_status):
-        self._resvp_status = resvp_status
+    @rsvp_status.setter
+    def rsvp_status(self, rsvp_status):
+        self._rsvp_status = rsvp_status
 
+    @property
     def accepted(self):
         return self._rsvp_status
+
+    @accepted.setter
+    def accepted(self, rsvp_status):
+        self._accepted = rsvp_status
 
     # @property
     # def accepted(self):

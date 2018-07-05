@@ -1,9 +1,10 @@
+#python -m unittest
 from invite import Invite
 from guest import Guest
 from recipe import Recipe
 from review import Review
 from course import Course
-
+import pdb
 class DinnerParty:
 
     _all = []
@@ -27,7 +28,7 @@ class DinnerParty:
         return [invite for invite in Invite._all if invite._dinner_party == self]
 
     def guests(self):
-        return [invite for invite in Invite._all if invite._dinner_party == self] #and invite._rsvp_status == True]
+        return [invite._guest for invite in self.invites() if invite._accepted == True]
 
     def number_of_attendees(self):
         return len(self.guests())

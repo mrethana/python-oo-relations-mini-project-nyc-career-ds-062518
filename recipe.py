@@ -22,6 +22,13 @@ class Recipe:
             recipe_rating_dict[recipe] = list
         return sorted(recipe_rating_dict, key = recipe_rating_dict.get, reverse =True)[:3]
 
+
+# def avg_rating(self):
+#     recipe_ratings = [review.rating for review in self.reviews()]
+#     return (sum(recipe_ratings)/len(recipe_ratings))
+
+
+
     @classmethod
     def bottom_three(cls):
         recipe_rating_dict = {review._recipe:[] for review in Review._all}
