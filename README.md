@@ -4,7 +4,7 @@
 ## Introduction
 In this lab we are going to practice object relationships in Python with an emphasis on has-many-through relationships. We will be building out a domain model for Guests, Invites, Dinner Parties, Courses, Recipes, and Reviews. A guest will have a collection of invites, which will relate a guest to a dinner party, thus creating the has many through relationship between a user and a dinner party. Just like any good dinner party there will be more than just one thing to eat, which means that a dinner party will have a collection of courses. Since not all courses will be unique across all dinner parties, a recipe will have also have many courses. A recipe also has many reviews, which are given directly by guests, so, guests will also have many reviews as well.
 
-Read through the deliverables below to begin building out these six classes and to figure out additional information about their relationships. 
+Read through the deliverables below to begin building out these six classes and to figure out additional information about their relationships.
 > **Note:** You may not be able to build out all methods until you have set up relationships between the classes, so it is normal to jump around a bit in the building process. If you are confused about how the models below relate to each other, it may help to draw this out on a whiteboard before beginning to code.
 
 ## Objectives
@@ -12,7 +12,27 @@ Read through the deliverables below to begin building out these six classes and 
 * Create instance and class methods that leverage the has many through relationships
 
 ### Guest
+Guests
+has many Invites
+has many reviews
 
+Invites
+belongs to Dinner party
+
+
+Dinner Parties
+has many courses
+has many invites
+
+Courses
+
+
+Recipes
+has many courses
+has many reviews
+
+Reviews
+belongs to guest
 
 **Class Methods:**
 * `Guest.all()` returns a list of all guest instances
@@ -23,7 +43,7 @@ Read through the deliverables below to begin building out these six classes and 
 **Instance Methods:**
 * `guest.invites()` returns a list of all of the guest's invites
 * `guest.reviews()` returns a list of all of the guest's reviews
-* `guest.number_of_invites()` returns the number of dinner party invites a guest has recieved 
+* `guest.number_of_invites()` returns the number of dinner party invites a guest has recieved
 * `guest.rsvp(invite, rsvp_status)` takes in a boolean value (True or False) and updates a guest's rsvp status. It should return the rsvp_status status
 * `guest.review_recipe(recipe, rating, comment)` adds a guest's review with a rating and comment to a recipe. Returns the given recipe's reviews
 * `guest.favorite_recipe()` returns the given guest's favorite recipe
@@ -82,4 +102,4 @@ Read through the deliverables below to begin building out these six classes and 
 ## Summary
 
 
-Great work! In this lab we created a pretty complex domain model and defined some neat class and instance methods to leverage these has many through relationships. We could see that without these relationships, meaning without a review linking a recipe and a guest, it would become very difficult to organize our information and query it accurately like we do in a class method that gives us the top or bottom three recipes. 
+Great work! In this lab we created a pretty complex domain model and defined some neat class and instance methods to leverage these has many through relationships. We could see that without these relationships, meaning without a review linking a recipe and a guest, it would become very difficult to organize our information and query it accurately like we do in a class method that gives us the top or bottom three recipes.
